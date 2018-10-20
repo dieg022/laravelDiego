@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/users/send_notification/{id}',function($id)
+{
+    $controller=new \App\Http\Controllers\Controller();
+    return $controller->sendNotification($id);
+});
