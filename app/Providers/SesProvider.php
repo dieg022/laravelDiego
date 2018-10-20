@@ -26,4 +26,8 @@ class SesProvider extends ServiceProvider implements MailerProvider
     {
         //
     }
+    public function send()
+    {
+        return true;
+    }
 }

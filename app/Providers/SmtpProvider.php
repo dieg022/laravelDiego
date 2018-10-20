@@ -25,4 +25,9 @@ class SmtpProvider extends ServiceProvider implements MailerProvider
     {
         //
     }
+
+    public function send()
+    {
+        return true;
+    }
 }
