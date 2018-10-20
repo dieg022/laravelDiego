@@ -7,6 +7,11 @@ use Illuminate\Support\ServiceProvider;
 
 class NotificationService extends ServiceProvider
 {
+    private $emailProvider;
+
+    public function __construct(MailerProvider $IeProvider) {
+        $this->emailProvider = $IeProvider;
+    }
     /**
      * Bootstrap services.
      *
@@ -24,11 +29,11 @@ class NotificationService extends ServiceProvider
      */
     public function register()
     {
-        //
+        
     }
 
     public function notify(User $user,$message)
     {
-        return true;
+        $this->emailProvider->send();
     }
 }
