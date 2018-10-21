@@ -43,7 +43,7 @@ class SendNotificationCommand extends Command
     {
         $userId = $this->argument('id');
 
-        $notificacion=new NotificationService($this);
+        $notificacion=new NotificationService(new \App\Providers\SesProvider($this));
 
         $user=new User();
 

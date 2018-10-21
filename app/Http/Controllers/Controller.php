@@ -10,18 +10,19 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Providers\NotificationService;
 use App\User;
-use App\Providers\MailerProvider as MailerInterface;
 
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+
+
     public function sendNotification($id)
     {
 
 
-        $notificacion=new NotificationService($a);
+        $notificacion=new NotificationService(new \App\Providers\SesProvider($this));
         $user=new User();
 
         $user->setName("DIEGO PUYA");
